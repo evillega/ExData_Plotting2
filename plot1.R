@@ -55,8 +55,7 @@ colnames(SSC)
 # [13] "Created_Date"        "Revised_Date"        "Usage.Notes" 
 
 # Total PM2.5 emissions in the US.  Total sum for each year.
-NEI_EmYr <- NEI[, c("Emissions", "year") ]
-NEI_sum <- aggregate(NEI_EmYr$Emissions, by = list(NEI_EmYr$year), FUN = sum)
+NEI_sum <- aggregate(NEI$Emissions, by = list(NEI$year), FUN = sum)
 head(NEI_sum)
 # Group.1       x
 #1    1999 7332967
@@ -66,6 +65,8 @@ head(NEI_sum)
 
 # plot Emissions, by year using base R plotting
 png(filename = "plot1.png", width = 480, height = 480)
-plot(NEI_sum$Group.1, NEI_sum$x, type = "l", ylab = "Total PM2.5 Emission", xlab = "Year", main = "Total PM2.5 Emissions in the United States")
+plot(NEI_sum$Group.1, NEI_sum$x, type = "l", 
+     ylab = "Total PM2.5 Emission", xlab = "Year", 
+     main = "Total PM2.5 Emissions in the United States")
 dev.off()
 
