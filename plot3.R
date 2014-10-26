@@ -61,7 +61,7 @@ colnames(SSC)
 NEI_Baltimore <- NEI[NEI$fips == "24510", ]
 dim(NEI_Baltimore)  # [1] 2096    6
 
-# plot Emissions, by year and type using ggplot2
+# plot Balimore city Emissions, by year and type using ggplot2
 png(filename = "plot3.png", width = 480, height = 480)
 BC_Types <- ggplot(NEI_Baltimore, aes(year, Emissions, color = type))
 BC_Types + geom_line(stat = "summary", fun.y = "sum") + 
